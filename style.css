@@ -1455,9 +1455,17 @@ body::after {
    ======================================== */
 
 @media (max-width: 768px) {
+    :root {
+        --spacing-xl: 4rem;
+        --spacing-lg: 3rem;
+        --spacing-md: 2rem;
+        --spacing-sm: 1rem;
+    }
+
     .music-toggle {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        /* Larger touch target */
+        height: 60px;
         top: 1rem;
         right: 1rem;
     }
@@ -1504,6 +1512,26 @@ body::after {
 
     .time-unit {
         min-width: 60px;
+    }
+
+    .time-unit {
+        min-width: 60px;
+    }
+
+    /* Lightbox mobile adjustments */
+    .lightbox-nav {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .lightbox-close {
+        width: 50px;
+        height: 50px;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(255, 255, 255, 0.2);
     }
 }
 
