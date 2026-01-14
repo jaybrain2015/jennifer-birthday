@@ -428,6 +428,11 @@ class PhotoLightbox {
             this.lightboxVideo.src = item.src;
             this.lightboxImage.style.display = 'none';
             this.lightboxVideo.style.display = 'block';
+
+            // Ensure mobile playback attributes
+            this.lightboxVideo.setAttribute('playsinline', '');
+            this.lightboxVideo.setAttribute('webkit-playsinline', '');
+
             // Auto-play video when opened
             console.log('Playing video:', item.src);
             this.lightboxVideo.play().catch(e => console.error('Auto-play failed:', e));

@@ -188,7 +188,7 @@
                     <!-- Video 4 -->
                     <div class="photo-card tilt-card">
                         <div class="tilt-content">
-                            <video class="birthday-photo" muted loop controls>
+                            <video class="birthday-photo" muted loop playsinline webkit-playsinline>
                                 <source src="birthday-video-4.mp4" type="video/mp4">
                             </video>
                             <div class="photo-overlay">
@@ -247,7 +247,11 @@
                         <div class="friend-wish-content tilt-content">
                             <h3 class="friend-name">Jemimah</h3>
                             <p class="friend-wish-text">
-                                Happy Birthday my Jheanifher! 🎉🎂 I’m so grateful to have a friend like you,someone who brings laughter, support, and good vibes into my life. May this new year bring you happiness, success, good health, and everything your heart’s been wishing for. Cheers to more growth, more wins, and more amazing memories ahead. Enjoy your special day to the fullest!” 🥂✨
+                                Happy Birthday my Jheanifher! 🎉🎂 I’m so grateful to have a friend like you,someone who
+                                brings laughter, support, and good vibes into my life. May this new year bring you
+                                happiness, success, good health, and everything your heart’s been wishing for. Cheers to
+                                more growth, more wins, and more amazing memories ahead. Enjoy your special day to the
+                                fullest!” 🥂✨
                             </p>
                         </div>
                     </div>
@@ -326,7 +330,8 @@
             <div class="lightbox-content">
                 <button class="lightbox-nav lightbox-prev" id="lightbox-prev">❮</button>
                 <img src="" alt="Gallery photo" id="lightbox-image" class="lightbox-media">
-                <video src="" controls id="lightbox-video" class="lightbox-media" style="display: none;"></video>
+                <video src="" controls playsinline webkit-playsinline id="lightbox-video" class="lightbox-media"
+                    style="display: none;"></video>
                 <button class="lightbox-nav lightbox-next" id="lightbox-next">❯</button>
             </div>
         </div>
