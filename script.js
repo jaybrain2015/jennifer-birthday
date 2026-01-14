@@ -348,6 +348,7 @@ class PhotoLightbox {
         this.lightbox = document.getElementById('lightbox');
         this.lightboxImage = document.getElementById('lightbox-image');
         this.lightboxVideo = document.getElementById('lightbox-video');
+        this.videoExitBtn = document.getElementById('video-exit-btn');
         this.closeBtn = document.getElementById('lightbox-close');
         this.prevBtn = document.getElementById('lightbox-prev');
         this.nextBtn = document.getElementById('lightbox-next');
@@ -397,6 +398,10 @@ class PhotoLightbox {
             }
         });
 
+        if (this.videoExitBtn) {
+            this.videoExitBtn.addEventListener('click', () => this.close());
+        }
+
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (!this.lightbox.classList.contains('active')) return;
@@ -424,10 +429,12 @@ class PhotoLightbox {
             this.lightboxImage.src = item.src;
             this.lightboxImage.style.display = 'block';
             this.lightboxVideo.style.display = 'none';
+            if (this.videoExitBtn) this.videoExitBtn.style.display = 'none';
         } else {
             this.lightboxVideo.src = item.src;
             this.lightboxImage.style.display = 'none';
             this.lightboxVideo.style.display = 'block';
+            if (this.videoExitBtn) this.videoExitBtn.style.display = 'block';
 
             // Ensure mobile playback attributes
             this.lightboxVideo.setAttribute('playsinline', '');

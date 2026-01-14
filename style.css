@@ -1536,6 +1536,12 @@ body::after {
         background: rgba(255, 255, 255, 0.2);
     }
 
+    .video-exit-btn {
+        bottom: 5rem;
+        /* Move up on mobile */
+        padding: 0.8rem 1.5rem;
+    }
+
     /* Hero Background Mobile Adjustments */
     .hero-background {
         min-height: 300px;
