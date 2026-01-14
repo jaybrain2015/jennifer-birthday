@@ -245,8 +245,8 @@ class MusicPlayer {
 
         this.toggle.addEventListener('click', () => this.toggleMusic());
 
-        // Set start time to 36 seconds
-        this.audio.currentTime = 36;
+        // Set start time to 53 seconds
+        this.audio.currentTime = 53;
 
         // Attempt to play immediately
         this.attemptAutoPlay();
@@ -307,43 +307,7 @@ class MusicPlayer {
     }
 }
 
-// ========================================
-// Welcome Overlay
-// ========================================
 
-class WelcomeOverlay {
-    constructor(musicPlayer, confetti) {
-        this.overlay = document.getElementById('welcome-overlay');
-        this.enterBtn = document.getElementById('enter-button');
-        this.musicPlayer = musicPlayer;
-        this.confetti = confetti;
-
-        if (this.enterBtn) {
-            this.enterBtn.addEventListener('click', () => this.enter());
-        }
-    }
-
-    enter() {
-        // Start music
-        if (this.musicPlayer) {
-            this.musicPlayer.play().catch(e => console.log('Playback failed', e));
-        }
-
-        // Start confetti
-        if (this.confetti) {
-            this.confetti.start();
-            setTimeout(() => this.confetti.stop(), 3000);
-        }
-
-        // Hide overlay
-        if (this.overlay) {
-            this.overlay.classList.add('hidden');
-            setTimeout(() => {
-                this.overlay.style.display = 'none';
-            }, 800); // Match transition duration
-        }
-    }
-}
 
 // ========================================
 // Surprise Modal
@@ -552,9 +516,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) { console.error('Countdown init failed', e); }
 
     try {
-        const musicPlayer = new MusicPlayer();
-        new WelcomeOverlay(musicPlayer, confetti);
-    } catch (e) { console.error('Music/Overlay init failed', e); }
+        new MusicPlayer();
+    } catch (e) { console.error('Music init failed', e); }
 
     try {
         new SurpriseModal(confetti);
