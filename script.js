@@ -244,6 +244,34 @@ class MusicPlayer {
         this.isPlaying = false;
 
         this.toggle.addEventListener('click', () => this.toggleMusic());
+
+        // Set start time to 36 seconds
+        this.audio.currentTime = 36;
+
+        // Attempt to play immediately
+        this.attemptAutoPlay();
+
+        // Add global listener for first interaction fallback
+        this.boundHandleFirstInteraction = this.handleFirstInteraction.bind(this);
+        document.addEventListener('click', this.boundHandleFirstInteraction);
+        document.addEventListener('keydown', this.boundHandleFirstInteraction);
+    }
+
+    async attemptAutoPlay() {
+        try {
+            await this.play();
+        } catch (error) {
+            console.log('Autoplay prevented by browser policy, waiting for interaction');
+        }
+    }
+
+    handleFirstInteraction() {
+        if (!this.isPlaying) {
+            this.play();
+        }
+        // Remove listeners after first attempt
+        document.removeEventListener('click', this.boundHandleFirstInteraction);
+        document.removeEventListener('keydown', this.boundHandleFirstInteraction);
     }
 
     toggleMusic() {
@@ -258,15 +286,17 @@ class MusicPlayer {
         const playPromise = this.audio.play();
 
         if (playPromise !== undefined) {
-            playPromise.then(() => {
+            return playPromise.then(() => {
                 this.isPlaying = true;
                 this.toggle.classList.add('playing');
                 this.status.textContent = 'Music On';
             }).catch(error => {
                 console.log('Audio playback prevented:', error);
                 this.status.textContent = 'Click to Play';
+                throw error;
             });
         }
+        return Promise.resolve();
     }
 
     pause() {
@@ -274,6 +304,44 @@ class MusicPlayer {
         this.isPlaying = false;
         this.toggle.classList.remove('playing');
         this.status.textContent = 'Music Off';
+    }
+}
+
+// ========================================
+// Welcome Overlay
+// ========================================
+
+class WelcomeOverlay {
+    constructor(musicPlayer, confetti) {
+        this.overlay = document.getElementById('welcome-overlay');
+        this.enterBtn = document.getElementById('enter-button');
+        this.musicPlayer = musicPlayer;
+        this.confetti = confetti;
+
+        if (this.enterBtn) {
+            this.enterBtn.addEventListener('click', () => this.enter());
+        }
+    }
+
+    enter() {
+        // Start music
+        if (this.musicPlayer) {
+            this.musicPlayer.play().catch(e => console.log('Playback failed', e));
+        }
+
+        // Start confetti
+        if (this.confetti) {
+            this.confetti.start();
+            setTimeout(() => this.confetti.stop(), 3000);
+        }
+
+        // Hide overlay
+        if (this.overlay) {
+            this.overlay.classList.add('hidden');
+            setTimeout(() => {
+                this.overlay.style.display = 'none';
+            }, 800); // Match transition duration
+        }
     }
 }
 
@@ -484,8 +552,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) { console.error('Countdown init failed', e); }
 
     try {
-        new MusicPlayer();
-    } catch (e) { console.error('Music init failed', e); }
+        const musicPlayer = new MusicPlayer();
+        new WelcomeOverlay(musicPlayer, confetti);
+    } catch (e) { console.error('Music/Overlay init failed', e); }
 
     try {
         new SurpriseModal(confetti);
