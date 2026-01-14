@@ -291,7 +291,8 @@ body::after {
     border-radius: 24px;
     overflow: hidden;
     background-image: url('hero-background.jpg');
-    background-size: contain;
+    background-size: cover;
+    /* Changed from contain to cover */
     background-position: center;
     background-repeat: no-repeat;
     background-color: var(--color-bg-dark);
@@ -1533,6 +1534,15 @@ body::after {
         top: 1rem;
         right: 1rem;
         background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hero Background Mobile Adjustments */
+    .hero-background {
+        min-height: 300px;
+        aspect-ratio: auto;
+        margin: var(--spacing-md) 0;
+        background-position: center top;
+        background-size: cover;
     }
 }
 
