@@ -59,7 +59,8 @@ body {
     overflow-x: hidden;
     position: relative;
     background-image: url('background-photo.jpg');
-    background-size: 100% auto;
+    background-size: cover;
+    /* Ensure it covers screen in all orientations */
     background-position: top center;
     background-attachment: fixed;
     background-repeat: no-repeat;
