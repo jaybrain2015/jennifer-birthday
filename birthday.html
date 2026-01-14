@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Jennifer! 🎉</title>
+    <meta name="description" content="A special birthday celebration page for Jennifer">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <canvas id="confetti-canvas"></canvas>
+    <canvas id="hearts-canvas"></canvas>
+
+    <div class="music-toggle" id="music-toggle" title="Toggle Background Music">
+        <svg class="music-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+        </svg>
+        <div class="music-status">Music Off</div>
+    </div>
+
+    <div class="container">
+        <div class="celebration-particles"></div>
+
+        <div class="content-wrapper">
+            <!-- Birthday Header -->
+            <div class="birthday-header reveal-fade">
+                <h1 class="birthday-title">
+                    Happy Birthday,
+                    <span class="name-highlight">Jennifer</span>
+                    <span class="emoji-dance">🎉</span>
+                </h1>
+                <div class="birthday-subtitle">
+                    Celebrating another year of being absolutely amazing! ✨
+                </div>
+            </div>
+
+            <!-- Hero Background Section -->
+            <div class="hero-background">
+                <div class="hero-overlay"></div>
+            </div>
+
+            <!-- Main Birthday Message -->
+            <div class="message-card reveal" id="message-card">
+                <div class="hearts-container"></div>
+                <h2 class="message-title">A Special Message For You 💝</h2>
+                <p class="birthday-message">
+                    Wishing you a day filled with love, laughter, and unforgettable moments!
+                    May this year bring you endless joy, amazing adventures, and dreams come true.
+                    You deserve all the happiness in the world! 🎂✨
+                </p>
+            </div>
+
+            <!-- Fun Pulling Box Section -->
+            <div class="pulling-box-section">
+                <div class="pulling-container">
+                    <!-- Cartoon Character Pulling -->
+                    <div class="cartoon-character">
+                        <div class="character-body">🧑‍🦱</div>
+                        <div class="pulling-text">Bringing the celebration!</div>
+                    </div>
+
+                    <!-- Rope -->
+                    <div class="rope"></div>
+
+                    <!-- Box with Photo -->
+                    <div class="gift-box">
+                        <div class="box-lid">🎀</div>
+                        <div class="box-content">
+                            <img src="box-photo.jpg" alt="Jennifer" class="box-photo">
+                        </div>
+                        <div class="box-base"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appreciation Section -->
+            <div class="appreciation-section reveal">
+                <h2 class="section-title">Why You're Amazing 🌟</h2>
+                <div class="appreciation-grid">
+                    <div class="appreciation-card tilt-card">
+                        <div class="tilt-content">
+                            <div class="appreciation-icon">💖</div>
+                            <h3>Your Kindness</h3>
+                            <p>Your warm heart touches everyone around you</p>
+                        </div>
+                    </div>
+                    <div class="appreciation-card tilt-card">
+                        <div class="tilt-content">
+                            <div class="appreciation-icon">✨</div>
+                            <h3>Your Spirit</h3>
+                            <p>You light up every room with your positive energy</p>
+                        </div>
+                    </div>
+                    <div class="appreciation-card tilt-card">
+                        <div class="tilt-content">
+                            <div class="appreciation-icon">🌈</div>
+                            <h3>Your Smile</h3>
+                            <p>Your smile makes the world a brighter place</p>
+                        </div>
+                    </div>
+                    <div class="appreciation-card tilt-card">
+                        <div class="tilt-content">
+                            <div class="appreciation-icon">🎨</div>
+                            <h3>Your Creativity</h3>
+                            <p>You bring beauty and inspiration to everything</p>
+                        </div>
+                    </div>
+                    <div class="appreciation-card tilt-card">
+                        <div class="tilt-content">
+                            <div class="appreciation-icon">💪</div>
+                            <h3>Your Strength</h3>
+                            <p>You overcome challenges with grace and courage</p>
+                        </div>
+                    </div>
+                    <div class="appreciation-card tilt-card">
+                        <div class="tilt-content">
+                            <div class="appreciation-icon">🌟</div>
+                            <h3>Your Uniqueness</h3>
+                            <p>There's no one quite like you in this world</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo Gallery -->
+            <div class="photo-section reveal">
+                <h2 class="section-title">Beautiful Memories 📸</h2>
+
+                <div class="photo-gallery">
+                    <!-- Christmas Photo -->
+                    <div class="photo-card tilt-card">
+                        <div class="tilt-content">
+                            <img src="birthday-photo-1.jpg" alt="Christmas celebration" class="birthday-photo">
+                            <div class="photo-overlay">
+                                <span class="photo-zoom">👁️ View</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 1 -->
+                    <div class="photo-card tilt-card">
+                        <div class="tilt-content">
+                            <video class="birthday-photo" muted loop controls>
+                                <source src="birthday-video-1.mp4" type="video/mp4">
+                            </video>
+                            <div class="photo-overlay">
+                                <span class="photo-zoom">▶️ Play</span>
+                            </div>
+                            <div class="video-indicator">🎬</div>
+                        </div>
+                    </div>
+
+                    <!-- Video 2 -->
+                    <div class="photo-card tilt-card">
+                        <div class="tilt-content">
+                            <video class="birthday-photo" muted loop controls>
+                                <source src="birthday-video-2.mp4" type="video/mp4">
+                            </video>
+                            <div class="photo-overlay">
+                                <span class="photo-zoom">▶️ Play</span>
+                            </div>
+                            <div class="video-indicator">🎬</div>
+                        </div>
+                    </div>
+
+                    <!-- Video 3 -->
+                    <div class="photo-card tilt-card">
+                        <div class="tilt-content">
+                            <video class="birthday-photo" muted loop controls>
+                                <source src="birthday-video-3.mp4" type="video/mp4">
+                            </video>
+                            <div class="photo-overlay">
+                                <span class="photo-zoom">▶️ Play</span>
+                            </div>
+                            <div class="video-indicator">🎬</div>
+                        </div>
+                    </div>
+
+                    <!-- Video 4 -->
+                    <div class="photo-card tilt-card">
+                        <div class="tilt-content">
+                            <video class="birthday-photo" muted loop controls>
+                                <source src="birthday-video-4.mp4" type="video/mp4">
+                            </video>
+                            <div class="photo-overlay">
+                                <span class="photo-zoom">▶️ Play</span>
+                            </div>
+                            <div class="video-indicator">🎬</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memory Timeline -->
+            <div class="timeline-section reveal">
+                <h2 class="section-title">Your Special Moments 🕰️</h2>
+                <div class="timeline">
+                    <div class="timeline-item reveal-left">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <img src="moment-photo-1.jpg" alt="Red looks good on you" class="timeline-photo">
+                            <h3>Your hair looks amazing! 🌟</h3>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-right">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <img src="moment-photo-2.jpg" alt="Stunning in black" class="timeline-photo">
+                            <h3>Stunning in black! 🖤</h3>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-left">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <img src="moment-photo-3.jpg" alt="Mirror moments" class="timeline-photo">
+                            <h3>Mirror moments! ✨</h3>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-right">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <img src="moment-photo-4.jpg" alt="Street art queen" class="timeline-photo">
+                            <h3>Street art queen! 👑</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wishes from Friends Section -->
+            <div class="wishes-section reveal">
+                <h2 class="section-title">Special Wishes From Friends 💝</h2>
+                <div class="friend-wishes">
+                    <div class="friend-wish-card tilt-card reveal-left">
+                        <div class="friend-photo-wrapper tilt-content">
+                            <img src="friend-photo-1.jpg" alt="Jemimah" class="friend-photo">
+                            <div class="friend-photo-border"></div>
+                        </div>
+                        <div class="friend-wish-content tilt-content">
+                            <h3 class="friend-name">Jemimah</h3>
+                            <p class="friend-wish-text">
+                                "Happy Birthday Jennifer! Your leadership and kindness inspire us every day.
+                                May this year bring you all the success and joy you deserve! 🎉"
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="friend-wish-card tilt-card reveal-right">
+                        <div class="friend-photo-wrapper tilt-content">
+                            <img src="friend-photo-2.jpg" alt="Deborah" class="friend-photo">
+                            <div class="friend-photo-border"></div>
+                        </div>
+                        <div class="friend-wish-content tilt-content">
+                            <h3 class="friend-name">Deborah</h3>
+                            <p class="friend-wish-text">
+                                "Wishing you an incredible birthday! You're not just an amazing PM,
+                                but an incredible friend. Here's to another year of crushing goals! 🚀"
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="friend-wish-card tilt-card reveal-left">
+                        <div class="friend-photo-wrapper tilt-content">
+                            <img src="friend-photo-3.jpg" alt="John" class="friend-photo">
+                            <div class="friend-photo-border"></div>
+                        </div>
+                        <div class="friend-wish-content tilt-content">
+                            <h3 class="friend-name">John</h3>
+                            <p class="friend-wish-text">
+                                Happy birthday! You always bring such warmth and good vibes. Thank you so much for the
+                                afang soup 😊 — it was really lovely. Here’s to many more years of amazing meals coming
+                                out of your kitchen. Wishing you all the very best today and always. 🌟
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Inspirational Quote Section -->
+            <div class="bottom-quote-section">
+                <div class="bottom-quote">
+                    "The best is yet to come!" ✨
+                </div>
+            </div>
+
+            <!-- Surprise Button -->
+            <button class="surprise-button" id="surprise-button">
+                <span class="button-content">
+                    <span class="button-icon">🎁</span>
+                    <span class="button-text">Open Your Surprise</span>
+                    <span class="button-sparkle">✨</span>
+                </span>
+            </button>
+
+            <!-- Surprise Modal -->
+            <div class="surprise-modal" id="surprise-modal">
+                <div class="surprise-content">
+                    <button class="close-modal" id="close-modal">&times;</button>
+                    <h2 class="surprise-title">🎊 Your Special Surprise! 🎊</h2>
+                    <p class="surprise-text">
+                        Here's to another year of being absolutely amazing!
+                        You light up every room you enter and make the world a better place.
+                        Cheers to you! 🥳🎈
+                    </p>
+                    <div class="surprise-message-box">
+                        <p>💌 <strong>Jemi Loves you!</strong></p>
+                    </div>
+                    <div class="surprise-emoji-rain">
+                        🎂 🎁 🎈 🎉 ✨ 🌟 💝 🎊
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <span class="lightbox-close" id="lightbox-close">&times;</span>
+            <div class="lightbox-content">
+                <button class="lightbox-nav lightbox-prev" id="lightbox-prev">❮</button>
+                <img src="" alt="Gallery photo" id="lightbox-image" class="lightbox-media">
+                <video src="" controls id="lightbox-video" class="lightbox-media" style="display: none;"></video>
+                <button class="lightbox-nav lightbox-next" id="lightbox-next">❯</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <audio id="birthday-music" loop>
+        <source src="birthday-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
