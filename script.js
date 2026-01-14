@@ -346,6 +346,7 @@ class SurpriseModal {
 class PhotoLightbox {
     constructor() {
         this.lightbox = document.getElementById('lightbox');
+        this.lightboxImage = document.getElementById('lightbox-image');
         this.lightboxVideo = document.getElementById('lightbox-video');
         this.closeBtn = document.getElementById('lightbox-close');
         this.prevBtn = document.getElementById('lightbox-prev');
@@ -427,8 +428,9 @@ class PhotoLightbox {
             this.lightboxVideo.src = item.src;
             this.lightboxImage.style.display = 'none';
             this.lightboxVideo.style.display = 'block';
-            // Optional: Auto-play video when opened
-            // this.lightboxVideo.play();
+            // Auto-play video when opened
+            console.log('Playing video:', item.src);
+            this.lightboxVideo.play().catch(e => console.error('Auto-play failed:', e));
         }
     }
 
